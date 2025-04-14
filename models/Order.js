@@ -17,13 +17,6 @@ getAllOrders: (callback) => {
     });
 };
 
-updateOrder: (id, updateData, callback) => {
-    orderDB.update({ _id: id }, { $set: updateData }, {}, (err, numReplaced) => {
-        if(err) return callback(err);
-        callback(null, numReplaced);
-    });
-};
-
 deleteOrder: (id, callback) => {
     orderDB.remove({ _id: id }, {}, (err, numRemoved) => {
         if(err) return callback(err);

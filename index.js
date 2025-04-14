@@ -1,13 +1,14 @@
 import express from "express";
-import "dotenv/config"
-
+import "dotenv/config";
+import menuRoutes from "./routes/menuRoutes.js";
 
 const app = express();
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8000;
 
+app.use(express.json());
 
+app.use('/menu', menuRoutes);
 
-// Använd egen env
 app.listen(PORT, () => {
-	console.log("Server is running on port 3000");
-});
+  console.log(`Server is running on port ${PORT}`);
+})

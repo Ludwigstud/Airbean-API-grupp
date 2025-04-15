@@ -1,9 +1,12 @@
 import Datastore from 'nedb';
 import path from 'path';
+import { fileURLToPath } from "url";
 
-const orderDB = new Datastore({ filename: path.join(__dirname, 'db', 'orders.db'), autoload: true });
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const orderDB = new Datastore({ filename: path.join(__dirname, "../db/orders.db"), autoload: true });
 
 const createOrder = (orderData, callback) => {
+   
     orderDB.insert(orderData, (err, newDoc) => {
         if(err) return callback(err);
         callback(null, newDoc);

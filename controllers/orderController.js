@@ -1,50 +1,69 @@
 import orderModel from '../models/Order.js';
 import Joi from 'joi';
 
-const validCategories = ["beverage", "pastry"];
-const validTitles = [
-    "Bryggkaffe",
-    "Caffè Doppio",
-    "Cappuccino",
-    "Latte Macchiato",
-    "Kaffe Latte",
-    "Cortado",
-    "Kanelbulle",
-    "Chokladboll",
-    "Morotskaka",
-    "Mazarin",
-    "Prinsesstårta",
-    "Dammsugare",
-    "Hallongrotta",
-    "Sockerkaka"
-];
+// const validCategories = ["beverage", "pastry"];
+// const validTitles = [
+//     "Bryggkaffe",
+//     "Caffè Doppio",
+//     "Cappuccino",
+//     "Latte Macchiato",
+//     "Kaffe Latte",
+//     "Cortado",
+//     "Kanelbulle",
+//     "Chokladboll",
+//     "Morotskaka",
+//     "Mazarin",
+//     "Prinsesstårta",
+//     "Dammsugare",
+//     "Hallongrotta",
+//     "Sockerkaka"
+// ];
 
-const orderSchema = Joi.object({
+// const orderSchema = Joi.object({
+//     _id: Joi.number().integer().required(),
+//     id: Joi.required(),
+//     title: Joi.string().valid(...validTitles).min(1).required(),
+//     description: Joi.string(),
+//     price: Joi.number().integer().required(),
+//     category: Joi.string().valid(...validCategories)
+// });
+
+const itemSchema = Joi.object({
     _id: Joi.number().integer().required(),
-    id: Joi.required(),
-    title: Joi.string().valid(...validTitles).min(1).required(),
-    description: Joi.string().required(),
+    title: Joi.string().required(),
     price: Joi.number().integer().required(),
-    category: Joi.string().valid(...validCategories).required()
-});
+    category: Joi.string().required()
+  });
+  
+  const orderSchema = Joi.object({
+    userId: Joi.string().guid({ version: 'uuidv4' }).required(),
+    items: Joi.array().items(itemSchema).min(1).required()
+  });
 
-export const createOrder = (req, res) => {
+  export const createOrder = (req, res) => {
     const orderData = req.body;
-
+  
     const { error, value } = orderSchema.validate(orderData, { abortEarly: false });
-
+  
     if (error) {
-        return res.status(400).json({ error: 'Ogiltig orderdata', 
-        details: error.details.map(detail => detail.message) });
+      return res.status(400).json({
+        error: 'Ogiltig orderdata',
+        details: error.details.map(detail => detail.message)
+      });
+    }
+  
+    const newOrder = {
+      ...value,
+      date: new Date().toISOString()
     };
-
-    orderModel.createOrder(value, (err, newOrder) => {
-        if (err) {
-            return res.status(500).json({ error: 'Fel vid orderskapandet' });
-        }
-        res.status(201).json(newOrder);
+  
+    orderModel.createOrder(newOrder, (err, savedOrder) => {
+      if (err) {
+        return res.status(500).json({ error: 'Fel vid orderskapandet' });
+      }
+      res.status(201).json(savedOrder);
     });
-};
+  };
 
 export const getAllOrders = (req, res) => {
     orderModel.getAllOrders((err, orders) => {

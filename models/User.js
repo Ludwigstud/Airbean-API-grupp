@@ -12,3 +12,10 @@ export const createUser = (userData, cb) => {
 export const getAllUsers = (callback) => {
 	userDb.find({}, callback); 
 };
+
+export const findUserById = (id, callback) => {
+	userDb.findOne({ id: id }, callback);
+};
+
+const userModel = { createUser, getAllUsers, findUserById };
+export default userModel;

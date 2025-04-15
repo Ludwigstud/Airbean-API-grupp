@@ -1,3 +1,10 @@
 {"_id":1,"title":"Bryggkaffe","description":"Bryggd på månadens bönor","price":49,"category":"beverage"}
-{"_id":14,"title":"Sockerkaka","description":"Luftig klassisk kaka med vaniljsmak","price":20,"category":"pastry"}
 {"_id":2,"title":"Caffè Doppio","description":"Bryggd på månadens bönor","price":49,"category":"beverage"}
+{"_id":3,"title":"Cappuccino","description":"Bryggd på månadens bönor","price":49,"category":"beverage","id":"fb65c6fc-ff50-4118-b8a2-c4f6251d5533"}
+{"_id":5,"title":"Kaffe Latte","description":"Bryggd på månadens bönor","price":49,"category":"beverage"}
+{"_id":8,"title":"Chokladboll","description":"Rullad i kokos, gjord på havregryn","price":20,"category":"pastry"}
+{"_id":9,"title":"Morotskaka","description":"Saftig med frosting av färskost","price":35,"category":"pastry"}
+{"_id":11,"title":"Prinsesstårta","description":"Grön marsipan, grädde och vaniljkräm","price":45,"category":"pastry","id":"92c03565-1cf2-4491-854f-a8903d351d80"}
+{"_id":12,"title":"Dammsugare","description":"Arraksboll täckt i marsipan och choklad","price":22,"category":"pastry","id":"fea39719-6a96-4177-82db-b3de63764762"}
+{"_id":13,"title":"Hallongrotta","description":"Smörkaka med hallonsylt i mitten","price":18,"category":"pastry"}
+{"_id":14,"title":"Sockerkaka","description":"Luftig klassisk kaka med vaniljsmak","price":20,"category":"pastry"}

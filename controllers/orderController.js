@@ -21,6 +21,7 @@ const validTitles = [
 
 const orderSchema = Joi.object({
     _id: Joi.number().integer().required(),
+    id: Joi.required(),
     title: Joi.string().valid(...validTitles).min(1).required(),
     description: Joi.string().required(),
     price: Joi.number().integer().required(),

@@ -11,4 +11,9 @@ const menuDB = new Datastore({
   autoload: true,
 });
 
-export default menuDB
+
+export const findMenuItemById = (_id, callback) => {
+  menuDB.findOne({ _id }, callback);
+};
+
+export default menuDB;

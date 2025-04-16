@@ -27,4 +27,11 @@ const deleteOrder = (id, callback) => {
     });
 };
 
-export default { createOrder, getAllOrders, deleteOrder }
+export const getOrder = (userId, cb) => {
+  orderDB.find({userId: userId}, (err, docs) => {
+    if (err) return cb(err);
+    cb(null, docs);
+  })
+}
+
+export default { createOrder, getAllOrders, deleteOrder,  }

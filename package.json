@@ -1,0 +1,28 @@
+{
+  "name": "airbean-api-grupp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ludwigstud/Airbean-API-grupp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Ludwigstud/Airbean-API-grupp/issues"
+  },
+  "homepage": "https://github.com/Ludwigstud/Airbean-API-grupp#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "joi": "^17.13.3",
+    "nedb": "^1.8.0",
+    "uuid": "^11.1.0"
+  }
+}

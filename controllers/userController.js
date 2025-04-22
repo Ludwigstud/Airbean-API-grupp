@@ -6,7 +6,7 @@ import { createUser, getAllUsers } from "../models/User.js";
 export const registerUser = (req, res) => {
 	const newUser = {
 		id: uuidv4(),
-		created: new Date(),
+		created: new Date().toISOString()
 	};
 
 	createUser(newUser, (err, insertedUser) => {

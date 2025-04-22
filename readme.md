@@ -1,6 +1,5 @@
+
 -- MVC✅
-
-
 //Enbart gå att lägga till produkter som finns i menyn, annars felmeddelande
 //All input som skickas med i body ska valideras, rätt produkt (ÄVEN PRIS)
 //När ett konto skapas ska det tilldelas slumpat användarid
@@ -20,4 +19,10 @@
         }
 
     ]
-}
+} 
+
+
+http://localhost:8000/api/users
+http://localhost:8000/api/menu
+http://localhost:8000/api/orders
+http://localhost:8000/api/orders/user
